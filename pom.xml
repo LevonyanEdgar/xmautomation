@@ -19,7 +19,7 @@
         <selenium.version>4.10.0</selenium.version>
         <lombok.version>1.18.20</lombok.version>
         <assertj-core.version>3.12.2</assertj-core.version>
-        <testng.version>7.6.1</testng.version>
+        <testng.version>7.7.0</testng.version>
         <log4j.version>2.17.1</log4j.version>
         <chromedriver.version>98.0.4758.80</chromedriver.version>
         <image.comperation.version>4.4.0</image.comperation.version>
