@@ -30,5 +30,6 @@ Web Automation
 - SELENIUM_BROWSER - Browser type (currently possible only chrome)
 - SELENIUM_RETRY - retry count in case of test fail
 - IS_SELENIUM_BROWSER_HEADLESS - is the browser headless
-- IS_SELENIUM_REMOTE_DRIVER - run on local or on selenoid (Selenoid UI : `http://18.158.59.66:8080/#/`)
-- 
+- IS_SELENIUM_REMOTE_DRIVER - run on local or on selenoid (Selenoid UI : `ex http://localhost:8080/#/`)
+
+
