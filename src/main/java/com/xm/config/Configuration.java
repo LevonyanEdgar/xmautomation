@@ -1,25 +1,27 @@
 package com.xm.config;
 
+import com.xm.base.Resolution;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Locale;
 import java.util.Properties;
 
 import static java.lang.Boolean.parseBoolean;
 import static java.lang.Integer.parseInt;
 
 @Log4j2
-public class Configuration {
+public abstract class Configuration {
 
     public static final String SELENIUM_URL;
     public static final String SELENIUM_BROWSER;
     public static final int SELENIUM_RETRY;
     public static final boolean IS_SELENIUM_BROWSER_HEADLESS;
+    public static final Resolution RESOLUTION;
+    public static final boolean IS_SELENIUM_REMOTE_DRIVER;
     private static final Properties configs;
 
-
-    // Read property file only once
     static {
         configs = new Properties();
         final var loader = Thread.currentThread().getContextClassLoader();
@@ -33,22 +35,14 @@ public class Configuration {
         SELENIUM_BROWSER = getProperty("selenium.browser", "chrome");
         SELENIUM_RETRY = parseInt(getProperty("selenium.retry.count"));
         IS_SELENIUM_BROWSER_HEADLESS = parseBoolean(getProperty("selenium.browser.headless"));
+        RESOLUTION = Resolution.valueOf(getProperty("browser.resolution"));
+        IS_SELENIUM_REMOTE_DRIVER = parseBoolean(getProperty("is.remote"));
 
         log.info(" ");
         log.info("Selected Browser: " + SELENIUM_BROWSER);
         log.info(" ");
     }
 
-    private Configuration() {
-    }
-
-    /**
-     * Trying to get property from the System by key
-     * If in System there is no, getting from config.property file
-     *
-     * @param key of property
-     * @return value of the property
-     */
     public static String getProperty(String key) {
         if (System.getProperty(key) == null || System.getProperty(key).isEmpty()) {
             String property = configs.getProperty(key);
@@ -61,15 +55,6 @@ public class Configuration {
         }
     }
 
-    /**
-     * Trying to get property from the System by key
-     * If in System there is no, getting from config.property file
-     * otherwise returns default value
-     *
-     * @param key          of property
-     * @param defaultValue is the value which will return if the property is empty
-     * @return value of the property
-     */
     public static String getProperty(String key, String defaultValue) {
         if (System.getProperty(key) == null || System.getProperty(key).isEmpty()) {
             if (configs.getProperty(key) == null || configs.getProperty(key).isEmpty()) {

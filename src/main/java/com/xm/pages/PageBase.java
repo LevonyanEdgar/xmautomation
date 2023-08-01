@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+
 import static com.xm.base.DriverBase.getDriver;
 import static com.xm.config.Configuration.SELENIUM_URL;
 import static com.xm.utils.ReportUtils.addStep;
@@ -100,8 +101,13 @@ public abstract class PageBase<T extends LoadableComponent<T>> extends LoadableC
     }
 
     protected void switchToParentFrame() {
-         log.info("Switching on parent frame");
+        log.info("Switching on parent frame");
         getDriver().switchTo().parentFrame();
+    }
+
+    protected void switchToFrame(String frameElementName) {
+        log.info("Switching on frame");
+        getDriver().switchTo().frame(frameElementName);
     }
 
     protected void switchToFrame(WebElement frameElement) {
@@ -124,7 +130,7 @@ public abstract class PageBase<T extends LoadableComponent<T>> extends LoadableC
 
     protected boolean isElementExist(WebElement element) {
         try {
-             log.info("Checking element " + element.getText() + "exist");
+            log.info("Checking element " + element.getText() + "exist");
             getWait().waitElementToBeEnabled(element);
             return true;
         } catch (Exception e) {

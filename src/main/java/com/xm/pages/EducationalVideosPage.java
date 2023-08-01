@@ -1,11 +1,13 @@
 package com.xm.pages;
 
 import lombok.SneakyThrows;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static com.xm.base.DriverBase.getDriver;
 import static com.xm.utils.ActionUtils.*;
 import static com.xm.utils.WaitHelper.getWait;
 
@@ -60,6 +62,7 @@ public class EducationalVideosPage extends PageBase<EducationalVideosPage> {
     }
 
     public EducationalVideosPage clickOnVideoCategoryByName(String name) {
+        scrollToElement(panelCategories.get(3));
         clickByText(panelCategories,name);
         return this;
     }
@@ -93,6 +96,7 @@ public class EducationalVideosPage extends PageBase<EducationalVideosPage> {
 
     @SneakyThrows
     public EducationalVideosPage pauseVideoAfterSeconds(int seconds) {
+        getDriver().switchTo().activeElement().sendKeys(Keys.PAGE_DOWN);
         Thread.sleep(seconds * 1000);
         hoverOverPlayer();
         clickPlayPauseButton();

@@ -10,15 +10,7 @@ import java.util.Map;
 import static com.xm.base.DriverBase.getDriver;
 
 @Log4j2
-public class CookieMenger {
-
-    public static void clearCookies() {
-        try {
-            getDriver().manage().deleteAllCookies();
-        } catch (Exception e) {
-            log.error("Unable to clear cookies, driver object is not viable...", e.getCause());
-        }
-    }
+public abstract class CookieMenger {
 
     public static void setCookie(String key, String value) {
         try {
@@ -28,14 +20,6 @@ public class CookieMenger {
         }
     }
 
-    public static void setItemLocalStorage(String key, String value) {
-        try {
-            JavascriptExecutor js = (JavascriptExecutor) getDriver();
-            js.executeScript("localStorage.setItem(arguments[0],arguments[1])", key, value);
-        } catch (Exception e) {
-            log.error("Unable to set local storage item, driver object is not viable...", e.getCause());
-        }
-    }
 
     public static void setCookie(String key, String value, String domain, String path, Date expiry) {
         try {

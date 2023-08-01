@@ -68,9 +68,7 @@ public class TestListener implements ITestListener, IHookable {
     @Override
     public void onFinish(ITestContext context) {
         log.info("Finished running test suite with " + context.getAllTestMethods().length + " tests");
-
     }
-
 
     @SneakyThrows
     @Override

@@ -132,5 +132,4 @@ public class TestUtils {
             throw new AssertionError("url is not opened, expected " + newUrl + "but found " + getCurrentUrl());
         }
     }
-
 }

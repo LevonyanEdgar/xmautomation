@@ -12,12 +12,12 @@ import java.lang.reflect.Method;
 import static com.xm.base.DriverBase.*;
 import static com.xm.utils.CookieMenger.setCookie;
 
- @Listeners({TestListener.class, AnnotationTransformer.class})
- public class TestBase {
+@Listeners({TestListener.class, AnnotationTransformer.class})
+public class TestBase {
     @BeforeMethod(alwaysRun = true)
     public void setup(Method method) {
 
-        instantiateDriverObject(method);
+        instantiateDriverObject();
         initDomain();
         setRequiredCookies();
     }
@@ -30,8 +30,10 @@ import static com.xm.utils.CookieMenger.setCookie;
 
     protected void setRequiredCookies() {
         //disable popup
-        Cookie cookie = new Cookie("xmck_popupShown", "1");
-        setCookie(cookie);
+        setCookie(new Cookie("xmck_popupShown", "1"));
+        setCookie( new Cookie("xmck_analytical", "1"));
+        setCookie(new Cookie("xmck_functional", "1"));
+        setCookie(new Cookie("xmck_preferences", "1"));
+        setCookie(new Cookie("xmck_promotional", "1"));
     }
-
 }

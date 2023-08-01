@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.xm.base.DriverBase.getDriver;
+import static com.xm.utils.ReportUtils.addStep;
 import static com.xm.utils.WaitHelper.getWait;
-import static org.testng.internal.Utils.log;
 
 public class ActionUtils {
 
@@ -19,7 +19,7 @@ public class ActionUtils {
     public static String getText(WebElement element) {
         getWait().waitElementToBeVisible(element);
         String text = element.getText();
-        log("Getting text of " + text + " element");
+        addStep(String.format("Getting text of %s element", text));
         return text;
     }
 
@@ -42,13 +42,14 @@ public class ActionUtils {
 
     public static void click(WebElement element) {
         getWait().waitElementToBeEnabled(element);
-        log("Clicking on " + element.getText() + " element");
+        addStep("Clicking on " + element.getText() + " element");
         getWait().waitElementToBeClickable(element);
         element.click();
     }
 
     public static void clickByText(List<WebElement> elements, String text) {
-        log("Clicking on " + text + " element");
+
+        addStep("Clicking on " + text + " element");
         getWait().waitListElementWithIndexToBeVisible(elements);
         elements.stream()
                 .filter(e -> Objects.equals(e.getText(), text))
@@ -62,7 +63,15 @@ public class ActionUtils {
         action.moveToElement(element).perform();
     }
 
-    public static void resizeScreen(int width, int height) {
-        getDriver().manage().window().setSize(new Dimension(width, height));
+    public static Boolean scrollToElement(WebElement element) {
+        String scrollElement = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
+                + "var top = arguments[0].getBoundingClientRect().top;"
+                + "window.scrollBy(0, top-(viewPortHeight/2));"
+                + "return true;";
+        try {
+            return (Boolean) getWait().executeScript(scrollElement, element);
+        } catch (Exception ignore) {
+            return false;
+        }
     }
 }
