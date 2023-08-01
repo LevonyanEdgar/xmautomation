@@ -1,9 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Main Test Suite" parallel="methods">
-    <listeners>
-        <listener class-name="com.xm.listeners.AnnotationTransformer"/>
-        <listener class-name="com.xm.listeners.TestListener"/>
-    </listeners>
     <test name="All tests">
         <packages>
             <package name="com.xm.*"/>
