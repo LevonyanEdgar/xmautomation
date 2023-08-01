@@ -71,23 +71,8 @@ public class TopNavigationBar extends ComponentBase<TopNavigationBar> {
         click(economicCalendar);
     }
 
-    public EconomicCalendarPage clickEconomicCalendarHyperLinkMobile() {
-        clickByText(researchSubButtonsMobileView, "Economic Calendar");
-        return new EconomicCalendarPage().init();
-    }
-
-    public EconomicCalendarPage clickEducationalVideosHyperLinkMobile() {
-        clickByText(researchSubButtonsMobileView, "Educational Videos");
-        return new EconomicCalendarPage().init();
-    }
-
     public EducationalVideosPage clickEducationalVideosHyperLink() {
         clickByText(tutorialsSubButtons, "Educational Videos");
         return new EducationalVideosPage().init();
-    }
-
-    public TopNavigationBar clickLeftMenu() {
-        click(leftMenu);
-        return this;
     }
 }

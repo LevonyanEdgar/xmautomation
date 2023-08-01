@@ -5,12 +5,10 @@ import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Locale;
 import java.util.Properties;
 
 import static java.lang.Boolean.parseBoolean;
 import static java.lang.Integer.parseInt;
-
 @Log4j2
 public abstract class Configuration {
 

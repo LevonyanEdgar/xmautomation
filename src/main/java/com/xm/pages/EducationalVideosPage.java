@@ -7,7 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static com.xm.base.DriverBase.getDriver;
 import static com.xm.utils.ActionUtils.*;
 import static com.xm.utils.WaitHelper.getWait;
 
@@ -96,7 +95,7 @@ public class EducationalVideosPage extends PageBase<EducationalVideosPage> {
 
     @SneakyThrows
     public EducationalVideosPage pauseVideoAfterSeconds(int seconds) {
-        getDriver().switchTo().activeElement().sendKeys(Keys.PAGE_DOWN);
+        switchToActiveElement(Keys.PAGE_DOWN);
         Thread.sleep(seconds * 1000);
         hoverOverPlayer();
         clickPlayPauseButton();

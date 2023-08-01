@@ -2,10 +2,8 @@ package com.xm.utils;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.Cookie;
-import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.Date;
-import java.util.Map;
 
 import static com.xm.base.DriverBase.getDriver;
 
@@ -44,8 +42,5 @@ public abstract class CookieMenger {
             log.error("Unable to set cookies, driver object is not viable...", e.getCause());
         }
     }
-
-
-
 
 }

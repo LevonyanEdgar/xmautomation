@@ -6,15 +6,10 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.InputStream;
-import java.net.URL;
 import java.time.Duration;
 import java.util.List;
-import java.util.Objects;
 
 import static com.xm.base.DriverBase.getDriver;
-import static com.xm.config.Configuration.SELENIUM_URL;
 
 public class WaitHelper {
 

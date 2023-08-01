@@ -1,6 +1,5 @@
 package com.xm.utils;
 
-import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import lombok.SneakyThrows;
@@ -10,13 +9,8 @@ import org.openqa.selenium.TakesScreenshot;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import static com.xm.base.DriverBase.getDriver;
 

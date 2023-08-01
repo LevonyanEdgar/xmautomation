@@ -21,5 +21,4 @@ public abstract class ComponentBase<T extends PageBase<T>> extends PageBase<T> {
         return initPage();
     }
 
-
 }

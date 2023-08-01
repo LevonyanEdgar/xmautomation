@@ -36,4 +36,5 @@ public class TestBase {
         setCookie(new Cookie("xmck_preferences", "1"));
         setCookie(new Cookie("xmck_promotional", "1"));
     }
+
 }
