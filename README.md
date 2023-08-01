@@ -21,3 +21,14 @@ Web Automation
 - If there is no system variables for our parameters, suit is working based on configs from config.properties file
 - to run allure report locally `allure serve allure-results/`
 - screenshots of failing tests `target/screenshots`
+
+
+
+### Parameters
+- RESOLUTION  set  resolution  options  MAXIMUM, RESOLUTION_1024x768, RESOLUTION_800x600;
+- SELENIUM_URL - Application base url
+- SELENIUM_BROWSER - Browser type (currently possible only chrome)
+- SELENIUM_RETRY - retry count in case of test fail
+- IS_SELENIUM_BROWSER_HEADLESS - is the browser headless
+- IS_SELENIUM_REMOTE_DRIVER - run on local or on selenoid (Selenoid UI : `http://18.158.59.66:8080/#/`)
+- 
