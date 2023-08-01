@@ -17,31 +17,22 @@
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <!--Dependency Versions-->
         <selenium.version>4.10.0</selenium.version>
+        <selenium.java.version>4.10.0</selenium.java.version>
         <lombok.version>1.18.20</lombok.version>
         <assertj-core.version>3.12.2</assertj-core.version>
         <testng.version>7.6.1</testng.version>
         <log4j.version>2.17.1</log4j.version>
-        <chromedriver.version>98.0.4758.80</chromedriver.version>
-        <image.comperation.version>4.4.0</image.comperation.version>
         <qameta.allure.version>2.13.2</qameta.allure.version>
         <aspectj.version>1.9.4</aspectj.version>
         <commons.version>1.22</commons.version>
         <jsoup.version>1.13.1</jsoup.version>
         <google-java-format.version>1.15.0</google-java-format.version>
-        <!--        <git-code-format-maven-plugin.version>4.2</git-code-format-maven-plugin.version>-->
-        <!--Configuration Properties-->
         <browser>chrome</browser>
         <threads>25</threads>
         <remote>false</remote>
         <headless>false</headless>
         <seleniumGridURL/>
-        <platform/>
         <browserVersion/>
-        <proxyEnabled>false</proxyEnabled>
-        <proxyHost/>
-        <proxyPort/>
-        <proxyUsername/>
-        <proxyPassword/>
     </properties>
     <dependencies>
         <dependency>
@@ -53,7 +44,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.10.0</version>
+            <version>${selenium.java.version}</version>
         </dependency>
 
         <dependency>
@@ -89,11 +80,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.romankh3</groupId>
-            <artifactId>image-comparison</artifactId>
-            <version>${image.comperation.version}</version>
-        </dependency>
-        <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${qameta.allure.version}</version>
@@ -109,30 +95,9 @@
             <version>4.9.1</version>
         </dependency>
         <dependency>
-            <groupId>com.assertthat</groupId>
-            <artifactId>selenium-shutterbug</artifactId>
-            <version>0.9.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>selenium-java</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>com.mashape.unirest</groupId>
             <artifactId>unirest-java</artifactId>
             <version>1.4.9</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.yandex.qatools.ashot</groupId>
-            <artifactId>ashot</artifactId>
-            <version>1.5.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.pdfbox</groupId>
-            <artifactId>pdfbox</artifactId>
-            <version>2.0.22</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
         <dependency>
@@ -140,22 +105,7 @@
             <artifactId>jsoup</artifactId>
             <version>${jsoup.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-websocket</artifactId>
-            <version>9.0.37</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jayway.jsonpath</groupId>
-            <artifactId>json-path</artifactId>
-            <version>2.7.0</version>
-        </dependency>
         <!--Allure Cucumber Dependency-->
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber7-jvm</artifactId>
-            <version>2.17.0</version>
-        </dependency>
     </dependencies>
 
 
