@@ -25,7 +25,7 @@
         <qameta.allure.version>2.13.2</qameta.allure.version>
         <aspectj.version>1.9.4</aspectj.version>
         <commons.version>1.22</commons.version>
-        <jsoup.version>1.13.1</jsoup.version>
+        <jsoup.version>1.15.3</jsoup.version>
         <google-java-format.version>1.15.0</google-java-format.version>
         <browser>chrome</browser>
         <threads>25</threads>
