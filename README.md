@@ -15,6 +15,7 @@ Web Automation
 
 ### Run from terminal
 - mvn failsafe:integration-test
+- mvn failsafe:integration-test -Dthreads=1 -Dtestng.xml.file=testng/all-suite.xml  -Dis.remote=true -Dselenioid.grid.url={$selenoid_URL}
 
 ### Run locally
 
