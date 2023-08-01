@@ -1,6 +1,7 @@
 package com.xm.config;
 
 import com.xm.base.Resolution;
+import io.netty.handler.codec.spdy.SpdyWindowUpdateFrame;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ public abstract class Configuration {
     public static final boolean IS_SELENIUM_BROWSER_HEADLESS;
     public static final Resolution RESOLUTION;
     public static final boolean IS_SELENIUM_REMOTE_DRIVER;
+     public static final String SELENIOID_GRID_URL;
     private static final Properties configs;
 
     static {
@@ -28,6 +30,7 @@ public abstract class Configuration {
         } catch (IOException e) {
             log.info(e.getMessage());
         }
+        SELENIOID_GRID_URL=getProperty("selenioid.grid.url");
 
         SELENIUM_URL = getProperty("selenium.url").replaceAll("/$", "");
         SELENIUM_BROWSER = getProperty("selenium.browser", "chrome");

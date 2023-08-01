@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,7 +71,7 @@ public class DriverFactory {
         chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.setExperimentalOption("prefs", chromePreferences);
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-        return new RemoteWebDriver(capabilities);
+        return new RemoteWebDriver(new URL(SELENIOID_GRID_URL), capabilities);
     }
 
 
